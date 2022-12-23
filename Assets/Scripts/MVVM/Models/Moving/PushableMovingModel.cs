@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Sokobun.Inputs;
+using Sokobun.Views;
+using UnityEngine;
 
 namespace Sokobun.Models
 {
@@ -19,7 +21,18 @@ namespace Sokobun.Models
         }
         public void SetDirection(Vector2 direction)
         {
-            Direction = direction;
+            var hit = Physics2D.OverlapPoint((Vector2)Movable.position + direction, ~InputLayers.TileLayerMask);
+            var reverseHit = Physics2D.OverlapPoint((Vector2)Movable.position - direction, ~InputLayers.TileLayerMask);
+                     
+            if (reverseHit == null)
+                Direction = Vector2.zero;
+
+            else if (!hit && reverseHit.gameObject.TryGetComponent(out PlayerView _))
+                Direction = direction;
+            
+            else
+                Direction = Vector2.zero;        
+            
         }
     }
 }

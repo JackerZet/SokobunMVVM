@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 
-namespace Sokobun.Input 
+namespace Sokobun.Inputs 
 {
     public static class InputDirection
     {
-        private static (KeyCode, Vector2)[] _directions = new (KeyCode, Vector2)[]
+        private static readonly (KeyCode, Vector2)[] _directions = new (KeyCode, Vector2)[]
         {
             (KeyCode.W, Vector2.up),
             (KeyCode.S, Vector2.down),
@@ -16,11 +16,17 @@ namespace Sokobun.Input
         {
             for(int i = 0; i < _directions.Length; i++)
 
-                if (UnityEngine.Input.GetKey(_directions[i].Item1))
+                if (Input.GetKey(_directions[i].Item1))
                     return _directions[i].Item2;
 
             return Vector2.zero;
         }
+    }
+    public static class InputLayers
+    {
+        public const string TileLayerName = "Tile";
+        public const int TileLayer = 6;
+        public const int TileLayerMask = 1 << TileLayer;
     }
     public static class InputResources
     {

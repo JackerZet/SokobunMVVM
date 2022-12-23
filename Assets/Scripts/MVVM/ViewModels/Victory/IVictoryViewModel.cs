@@ -8,5 +8,6 @@ namespace Sokobun.ViewModels
         IVictoryModel VictoryModel { get; }
         event Action OnPressEventHandler;
         event Action OnReleaseEventHandler;
+        public void IsPressed();
     }
 }

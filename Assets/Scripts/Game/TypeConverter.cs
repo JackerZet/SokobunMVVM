@@ -1,5 +1,5 @@
 ﻿using Sokobun.Data;
-using Sokobun.Input;
+using Sokobun.Inputs;
 using Sokobun.Views;
 using UnityEngine;
 
@@ -15,14 +15,14 @@ namespace Sokobun.Game
             nameof(PushableView),
             nameof(VictoryTileView)
         };
-        public readonly GameObject[] prefabs;
+        //public readonly GameObject[] prefabs;
         private readonly LevelData _data;
         public TypeConverter(LevelData data)
         {
-            prefabs = new GameObject[QuantityOfTypes];
+            //prefabs = new GameObject[QuantityOfTypes];
 
-            for (int i = 1; i < QuantityOfTypes; i++)
-                prefabs[i] = InputResources.Load(ides[i]);
+            //for (int i = 1; i < QuantityOfTypes; i++)
+            //    prefabs[i] = InputResources.Load(ides[i]);
             
             _data = data;
         }

@@ -9,6 +9,8 @@ namespace Sokobun.Views
         public IVictoryViewModel VictoryViewModel { get; private set; }
         public void Init(IVictoryViewModel victoryViewModel, VictoryCaretaker victoryCaretaker)
         {
+            VictoryViewModel = victoryViewModel;
+            
             victoryViewModel.OnPressEventHandler += victoryCaretaker.OnPressTile;
             victoryViewModel.OnReleaseEventHandler += victoryCaretaker.OnReleaseTile;
         }

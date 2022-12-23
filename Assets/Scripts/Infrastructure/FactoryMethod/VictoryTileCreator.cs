@@ -1,4 +1,4 @@
-﻿using Sokobun.Input;
+﻿using Sokobun.Inputs;
 using Sokobun.Models;
 using Sokobun.Victory;
 using Sokobun.ViewModels;
